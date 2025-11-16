@@ -9,8 +9,9 @@ batch_size = 64
 train_split = 0.7
 val_split = 0.3
 subset_size = 50000
+
 async def load_images():
-    builder = dataset.BuildLoaders(train_split, val_split, batch_size, subset_size)
+    builder = dataset.BuildLoaders('data', train_split, val_split, batch_size, subset_size)
     train_loader, _ = builder.build()
 
     images = next(iter(train_loader)) # (64, 3, 64, 64)
