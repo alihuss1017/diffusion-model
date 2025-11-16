@@ -11,11 +11,11 @@ class MyDataset(Dataset):
         return len(os.listdir(self.img_dir))
 
     def __getitem__(self, idx):
-        return decode_image(f'data/{os.listdir(self.img_dir)[idx]}')
+        return decode_image(f'{self.img_dir}/{os.listdir(self.img_dir)[idx]}')
     
 
 class BuildLoaders():
-    def __init__(self, train_split: float, val_split: float, 
+    def __init__(self, img_dir: str, train_split: float, val_split: float, 
                 batch_size: int, subset_size: int | None = None):
     
         self.subset_size = subset_size
@@ -23,7 +23,7 @@ class BuildLoaders():
         self.val_split = val_split
         self.batch_size = batch_size
 
-        self.dataset = MyDataset('data')
+        self.dataset = MyDataset(img_dir)
 
         self.train_data = None
         self.val_data = None
