@@ -1,18 +1,5 @@
 # DDPM Implementation
 
-## Completed:
-<ul>
-<li> U-Net architecture </li>
-<li> Dataset
-</ul>
-
-## In Progress/Not Started:
-<ul>
-<li> Reverse-Diffusion Process </li>
-<li> Training </li>
-<li> Inference </li>
-</ul>
-
 ## Visualizations:
 
 Here's what the forward-diffusion process of progressively adding noise at each time step looks like:
