@@ -7,8 +7,7 @@ class SinusoidalEncoding(nn.Module):
         self.emb_dim = emb_dim
 
     def forward(self, t):
-        out = torch.zeros((len(t), self.emb_dim)) # (batch_size, emb_dim)
-        
+        out = torch.zeros((t.shape[0], self.emb_dim)) # (batch_size, emb_dim)
         idx = torch.arange(self.emb_dim).unsqueeze(0) # (1, emb_dim)
         t = t.unsqueeze(1) # (batch_size, 1)
 
@@ -189,7 +188,5 @@ class UNet(nn.Module):
         us3_out = self.us_block3(us3_in, skip_conn3, embeddings)
 
         return self.final_conv(us3_out)
-
-
 
 
